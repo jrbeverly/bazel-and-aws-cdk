@@ -1,0 +1,34 @@
+{
+  "name": "bazelawscdk",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "@bazel/bazelisk": "latest",
+    "@bazel/buildifier": "latest",
+    "@bazel/ibazel": "latest",
+    "@bazel/typescript": "3.4.1"
+  },
+  "scripts": {
+    "build": "bazel build //...",
+    "test": "bazel test //..."
+  },
+  "dependencies": {
+    "@aws-cdk/aws-cloudwatch": "1.100.0",
+    "@aws-cdk/aws-events": "1.100.0",
+    "@aws-cdk/aws-iam": "1.100.0",
+    "@aws-cdk/aws-kms": "1.100.0",
+    "@aws-cdk/aws-sns": "1.100.0",
+    "@aws-cdk/aws-sqs": "1.100.0",
+    "@aws-cdk/cloud-assembly-schema": "1.100.0",
+    "@aws-cdk/core": "1.100.0",
+    "@aws-cdk/cx-api": "1.100.0",
+    "@aws-cdk/region-info": "1.100.0",
+    "@types/node": "15.0.1",
+    "@types/tar": "4.0.4",
+    "aws-cdk": "1.100.0",
+    "constructs": "3.3.75",
+    "grunt-cli": "1.4.2",
+    "tar": "6.1.0",
+    "typescript": "4.2.4"
+  }
+}
