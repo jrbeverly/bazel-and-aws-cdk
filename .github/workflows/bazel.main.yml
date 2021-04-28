@@ -1,0 +1,32 @@
+name: Build & Test
+on:
+  push:
+    paths:
+      - .github/workflows/bazel.main.yml
+      - "**/BUILD"
+      - "**/*.ts"
+      - "**/*.bzl"
+      - "BUILD"
+      - "WORKSPACE"
+      - ".bazel*"
+      - "tsconfig.json"
+      - "package*.json"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Build
+        run: bazel build //:package
+      - name: Package
+        run: |
+          mkdir -p artifacts/
+          cp bazel-bin/package* artifacts/
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: cfn
+          path: artifacts/
